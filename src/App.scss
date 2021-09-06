@@ -1,0 +1,108 @@
+$font-color: hsl(172, 5%, 29%);
+$background1: hsl(171, 12%, 55%);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  color: $font-color;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  @include flex-center;
+
+  & .info-container {
+    min-height: 40rem;
+    width: 100%;
+    max-width: 70rem;
+    height: 80%;
+    max-height: 50rem;
+    @include flex-center;
+    flex-direction: column;
+    & .top {
+      flex: 0.3;
+      width: 100%;
+      background-color: $background1;
+      @include flex-center;
+      position: relative;
+
+      & .img-outer {
+        width: 13rem;
+        height: 13rem;
+        background-color: rgb(73, 36, 36);
+        @include flex-center;
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+
+        & .img-inner {
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+          @include flex-center;
+          overflow: hidden;
+
+          & img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    & .bottom {
+      flex: 0.7;
+      width: 100%;
+      padding-top: 3rem;
+      background-color: hsl(180, 17%, 93%);
+      @include flex-center;
+      flex-direction: column;
+      & .details {
+        text-align: center;
+        & p {
+          font-size: 1.6rem;
+          margin-bottom: 1rem;
+        }
+        & h3 {
+          font-size: 2rem;
+        }
+      }
+      & .buttons {
+        margin: 4rem 0;
+
+        & button {
+          cursor: pointer;
+          outline: none;
+          background: transparent;
+          border: none;
+          margin: 0 1.5rem;
+          .icon {
+            font-size: 3rem;
+            color: $font-color;
+          }
+        }
+      }
+      & .fetch-button {
+        & button {
+          background-color: $background1;
+          border: none;
+          padding: 0.5rem 1rem;
+          color: white;
+          font-size: 2rem;
+          font-weight: bold;
+          border-radius: 1rem;
+        }
+      }
+    }
+  }
+}
