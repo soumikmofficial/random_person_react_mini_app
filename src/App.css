@@ -11,6 +11,12 @@ html {
 }
 
 .container {
+  background: #0f2027;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left top, right top, from(#2c5364), color-stop(#203a43), to(#0f2027));
+  background: linear-gradient(to right, #2c5364, #203a43, #0f2027);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   height: 100vh;
   width: 100%;
   display: -webkit-box;
@@ -43,6 +49,8 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-shadow: 0.1rem 0.1rem 1rem grey;
+          box-shadow: 0.1rem 0.1rem 1rem grey;
 }
 
 .container .info-container .top {
@@ -50,7 +58,7 @@ html {
       -ms-flex: 0.3;
           flex: 0.3;
   width: 100%;
-  background-color: #7e9a96;
+  background-color: #a5c0bb;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -66,7 +74,7 @@ html {
 .container .info-container .top .img-outer {
   width: 13rem;
   height: 13rem;
-  background-color: #492424;
+  background-color: #2f8392;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -82,8 +90,8 @@ html {
 }
 
 .container .info-container .top .img-outer .img-inner {
-  width: 90%;
-  height: 90%;
+  width: 87%;
+  height: 87%;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -108,7 +116,7 @@ html {
           flex: 0.7;
   width: 100%;
   padding-top: 3rem;
-  background-color: #eaf0f0;
+  background-color: #f9fbfb;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -131,6 +139,7 @@ html {
 .container .info-container .bottom .details p {
   font-size: 1.6rem;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .container .info-container .bottom .details h3 {
@@ -145,6 +154,7 @@ html {
   cursor: pointer;
   outline: none;
   background: transparent;
+  padding: 0.6rem;
   border: none;
   margin: 0 1.5rem;
 }
@@ -155,12 +165,13 @@ html {
 }
 
 .container .info-container .bottom .fetch-button button {
-  background-color: #7e9a96;
+  cursor: pointer;
+  background-color: #2173dd;
   border: none;
   padding: 0.5rem 1rem;
   color: white;
-  font-size: 2rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 }
 /*# sourceMappingURL=App.css.map */

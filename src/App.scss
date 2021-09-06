@@ -1,5 +1,8 @@
 $font-color: hsl(172, 5%, 29%);
-$background1: hsl(171, 12%, 55%);
+$background1: hsl(170, 17%, 70%);
+$background2: hsl(180, 17%, 98%);
+$background3: rgb(33, 115, 221);
+
 * {
   margin: 0;
   padding: 0;
@@ -18,6 +21,20 @@ html {
 }
 
 .container {
+  background: #0f2027; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #2c5364,
+    #203a43,
+    #0f2027
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   height: 100vh;
   width: 100%;
   @include flex-center;
@@ -30,6 +47,7 @@ html {
     max-height: 50rem;
     @include flex-center;
     flex-direction: column;
+    box-shadow: 0.1rem 0.1rem 1rem grey;
     & .top {
       flex: 0.3;
       width: 100%;
@@ -40,15 +58,15 @@ html {
       & .img-outer {
         width: 13rem;
         height: 13rem;
-        background-color: rgb(73, 36, 36);
+        background-color: rgb(47, 131, 146);
         @include flex-center;
         border-radius: 50%;
         position: absolute;
         top: 50%;
 
         & .img-inner {
-          width: 90%;
-          height: 90%;
+          width: 87%;
+          height: 87%;
           border-radius: 50%;
           @include flex-center;
           overflow: hidden;
@@ -64,7 +82,7 @@ html {
       flex: 0.7;
       width: 100%;
       padding-top: 3rem;
-      background-color: hsl(180, 17%, 93%);
+      background-color: $background2;
       @include flex-center;
       flex-direction: column;
       & .details {
@@ -72,6 +90,7 @@ html {
         & p {
           font-size: 1.6rem;
           margin-bottom: 1rem;
+          font-weight: 600;
         }
         & h3 {
           font-size: 2rem;
@@ -84,6 +103,7 @@ html {
           cursor: pointer;
           outline: none;
           background: transparent;
+          padding: 0.6rem;
           border: none;
           margin: 0 1.5rem;
           .icon {
@@ -94,13 +114,14 @@ html {
       }
       & .fetch-button {
         & button {
-          background-color: $background1;
+          cursor: pointer;
+          background-color: $background3;
           border: none;
           padding: 0.5rem 1rem;
           color: white;
-          font-size: 2rem;
+          font-size: 1.6rem;
           font-weight: bold;
-          border-radius: 1rem;
+          border-radius: 0.5rem;
         }
       }
     }
