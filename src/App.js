@@ -9,42 +9,45 @@ import NotListedLocationIcon from "@material-ui/icons/NotListedLocation";
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [type, setType] = useState("fullname");
-  // const [value, setValue] = useState("random person");
+  const [type, setType] = useState("name");
   const [person, setPerson] = useState(null);
-  const defaultImage = "https://randomuser.me/api/portraits/men/75.jpg";
 
   const url = "https://randomuser.me/api/";
 
   const fetchPerson = async () => {
-    const response = await fetch(url);
-    const data = await response.json();
-    const person = data.results[0];
-    const phone = person.phone;
-    const email = person.email;
-    const age = person.dob.age;
-    const { large: image } = person.picture;
-    const { password } = person.login;
-    const { first, last } = person.name;
-    const {
-      street: { number, name },
-    } = person.location;
-    const location = `${number} ${name}`;
-    const name = `${first} ${last}`;
-    const newPerson = {
-      fullname,
-      location,
-      phone,
-      email,
-      password,
-      age,
-      image,
-    };
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      if (data) {
+        const person = data.results[0];
+        const phone = person.phone;
+        const email = person.email;
+        const age = person.dob.age;
+        const { large: image } = person.picture;
+        const { password } = person.login;
+        const { first, last } = person.name;
+        const {
+          street: { number, name: streetName },
+        } = person.location;
+        const name = `${first} ${last}`;
+        const location = `${number} ${streetName}`;
+        const newPerson = {
+          name,
+          location,
+          phone,
+          email,
+          password,
+          age,
+          image,
+        };
 
-    setPerson(newPerson);
+        setPerson(newPerson);
+      }
+    } catch (error) {
+      console.log(error);
+    }
     setLoading(false);
-    setType("fullname");
-    // setValue(person[type]);
+    setType("name");
   };
 
   useEffect(() => {
@@ -55,7 +58,6 @@ function App() {
     if (e.target.classList.contains("btn")) {
       const newVal = e.target.dataset.label;
       setType(newVal);
-      // setValue(person[newVal]);
     }
   };
   return (
@@ -79,7 +81,7 @@ function App() {
               </div>
               <div className="buttons">
                 <button
-                  data-label="fullname"
+                  data-label="name"
                   onMouseOver={handleEvent}
                   className="btn"
                 >
